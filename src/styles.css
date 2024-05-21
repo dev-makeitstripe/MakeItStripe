@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+a.navbar-brand img {
+    height: 100px;
+    width: 100px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding:.5em 5%;
+}
+
+.global-padding{
+    padding:.5em 5%;
+}
+
+.navbar-brand,
+.nav-link {
+    color: darkgreen;
+}
+
+.green{
+    color: darkgreen;
+}
+
+.nav-link:hover {
+    color: yellow;
+}
+
+#back-to-top{
+    z-index: 10;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: darkgreen;
+}
