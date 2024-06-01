@@ -4,12 +4,12 @@
     padding: 10px;
 }
 
-.centered-content h1,
-h3,
-div,
-h1 p {
-    text-align: center;
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
 }
+
 
 .section-header-image {
     background-image: url("/assets/presidential-stripes.jpg");
@@ -18,7 +18,8 @@ h1 p {
 .section-header {
     min-width: 100svh;
     min-height: 50svh;
-    padding:4em 0;
+    padding: 4em 0;
+    text-align: left;
 }
 
 .padding-global {
@@ -30,7 +31,7 @@ h1 p {
     margin-right: auto !important;
     margin-left: auto !important;
     width: 100%;
-    max-width: 48rem;
+    max-width: 80%;
 }
 
 
@@ -56,7 +57,7 @@ h1 p {
     font-size: 18px;
     text-align: center;
     line-height: 27px;
-    color:white;
+    color: white;
 }
 
 .action-items {
@@ -83,12 +84,131 @@ h1 p {
     border-radius: 25px;
 }
 
+.dark-green {
+    color: darkgreen;
+}
+
 .primary-action {}
 
 .seconary-action {
     background-color: transparent;
 }
 
-.sub-heading{
+.sub-heading {
     padding: .5em 0;
+}
+
+.highlight {
+
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 2%;
+    display: block;
+}
+
+.no-bullets li {
+    list-style: none;
+}
+
+.section-layout949 {
+    background-color: lightgreen;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.no-show {
+    display: none;
+}
+
+.section-layout949-header {
+    background-color: lightgreen;
+}
+
+.services-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding: .5em 5%;
+}
+
+.section-layout949-content-top {
+    width: 100%
+}
+
+.card-layout {
+    background-color: white;
+    padding: 5%;
+}
+
+.section-layout949 {
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+}
+
+.section-layout949-row {
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-pic {
+    max-width: 100%;
+    display: inline-block;
+}
+
+.card-sub-heading {
+    color: darkgreen;
+    font-weight: 600;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.available-services {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+}
+
+.available-services li {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    padding-left: .5rem;
+}
+
+.max-width-large{
+    width:100%;
+    max-width: 48rem;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.half-width{
+    width: 50%;
+}
+
+.margin-small{
+    margin:1.5em;
+}
+
+.margin-bottom{
+    margin-left:0rem !important;
+    margin-right:0rem !important;
+    margin-top:0rem !important;
+}
+
+.text-size-medium {
+    font-size: 1.125rem;
 }
