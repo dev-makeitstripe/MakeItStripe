@@ -1,0 +1,37 @@
+.modal-wrapper{
+    background-color: white;
+    border:2px solid black;
+}
+.grid{
+
+    padding: .5em 5%;
+}
+.grid-single-line{
+    justify-content: left;
+    display: block;
+}
+
+.full-length{
+    width:100%;
+}
+
+.grid-row{
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.modal-wrapper{
+    padding:1em;
+}
+
+.services{
+    display: inline-block;
+}
+
+.no-bullets li{
+    list-style-type: none;
+    padding:.5em 0;
+}

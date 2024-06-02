@@ -1,0 +1,157 @@
+<div class="modal-wrapper">
+    <div class="modal-header">
+        <div>
+            <h2>
+                Contact Make It Stripe
+            </h2>
+        </div>
+
+        <div>
+            <p>
+                Contact Us Today To Get A customized quote started for your property!
+            </p>
+        </div>
+
+    </div>
+    <div class="form-data">
+        <div class="grid-wrapper">
+            <form contactForm="ngForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <div>
+                        <!-- pull down goes here-->
+                    </div>
+                    <div class="grid">
+                        <div class="grid-row">
+                            <div>
+                                <input type="text" id="first_name" placeholder="First Name" name="first_name"
+                                    [(ngModel)]="contactDetails.first_name" required>
+                                <div *ngIf="contactForm.first_name?.touched && contactForm.first_name?.invalid"
+                                    class="text-danger">
+                                    First Name is required.
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" id="middle_initial" placeholder="Middle Initial"
+                                    name="middle_initial" [(ngModel)]="contactDetails.middle_initial">
+                            </div>
+                            <div>
+                                <input type="text" id="last_name" placeholder="Last Name" name="last_name"
+                                    [(ngModel)]="contactDetails.last_name" required>
+                                <div *ngIf="contactForm.last_name?.touched && contactForm.last_name.invalid"
+                                    class="text-danger">
+                                    Name is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="grid-row">
+                            <div>
+                                <input type="text" id="phone_number" placeholder="Phone Number" name="phone_number"
+                                    [(ngModel)]="contactDetails.phone_number" required>
+                                <div *ngIf="contactForm.last_name?.touched && contactForm.last_name.invalid"
+                                    class="text-danger">
+                                    Name is required.
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" id="email" placeholder="Email" name="email"
+                                    [(ngModel)]="contactDetails.email" required>
+                                <div *ngIf="contactForm.email?.touched && contactForm.email.invalid"
+                                    class="text-danger">
+                                    Email is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-single-line">
+                        <div>
+                            <div>
+                                <input type="text" class="full-length" id="address" placeholder="Address" name="address"
+                                    [(ngModel)]="contactDetails.address" required>
+                                <div *ngIf="contactForm.address.touched && contactForm.address.invalid"
+                                    class="text-danger">
+                                    Address is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-single-line">
+                        <div>
+                            <div>
+                                <input type="text" class="full-length" id="address2" placeholder="Address2" name="address2"
+                                    [(ngModel)]="contactDetails.address2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-single-line">
+                        <div>
+                            <div>
+                                <input type="text" id="zipcode" placeholder="Zipcode" name="zipcode"
+                                    [(ngModel)]="contactDetails.zipcode">
+                                <div *ngIf="contactForm.zipcode?.touched && contactForm.zipcode.invalid"
+                                    class="text-danger">
+                                    Zipcode is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-single-line">
+                        <div>
+                            <div>
+                                <label>Which service(s) are you interested in?</label>
+
+                                <div>
+                                    <ul class="no-bullets">
+                                        <li>
+                                            <input class="services" type="checkbox" name="lawn_maintenance" data-name="lawn-maintenance"
+                                                [(ngModel)]="contactDetails.lawn_maintenance" />
+
+                                            <span for="lawn_maintenance" clas="">
+                                                Lawn Maintenance
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <input class="services" type="checkbox" name="landscaping" data-name="landscaping"
+                                                [(ngModel)]="contactDetails.landscaping" />
+
+                                            <span for="lawn_maintenance" clas="">
+                                                Landscaping
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="grid-row">
+                            <textarea id="needs" maxlength="5000" rows="6" cols="100"
+                                placeholder="Please Describe your needs ..."></textarea>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="grid-row">
+                            <select id="where-did-you-hear" name="" data-name="" required>
+                                <option value="">How did you hear about us>?</option>
+                                <option value="Website">Website</option>
+                                <option value="Mailer">Mailer</option>
+                                <option value="Social-Media">Social Media</option>
+                                <option value="Google / Online Search">Social Media</option>
+                                <option value="Work-Truck">Work Truck</option>
+                                <option value="Referral">Referral</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <!-- submit goes here-->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

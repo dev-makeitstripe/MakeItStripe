@@ -4,7 +4,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { ImageModule } from 'primeng/image';
-
+import { DialogService } from 'primeng/dynamicdialog'; 
+import { MessageService } from 'primeng/api'; 
+import { DynamicDialogRef } from 'primeng/dynamicdialog'; 
+import {ContactComponent} from './Modals/contact/contact.component'
 
 @Component({
   selector: 'app-root',
@@ -13,18 +16,45 @@ import { ImageModule } from 'primeng/image';
     HeaderComponent,
     FooterComponent,
     GalleriaModule,
-    ImageModule,],
+    ImageModule,
+],
+  providers: [DialogService, MessageService],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 
 export class AppComponent {
   title = 'MakeItStripe';
   isVisible = false;
+  
+  constructor( 
+    public dialogService: DialogService, 
+    public messageService: MessageService 
+) { } 
+
+ref: DynamicDialogRef | undefined; 
+
+show() { 
+  this.ref = this.dialogService.open(ContactComponent, { 
+      width: '70%', 
+      contentStyle: { overflow: 'auto' }, 
+      baseZIndex: 10000, 
+      position:"top-right",
+      closable:false,
+      dismissableMask:true
+  }); 
+} 
+
+ngOnDestroy() { 
+  if (this.ref) { 
+      this.ref.close(); 
+  } 
+} 
+
   images: any[] = [
     {
       previewImageSrc:
-      '/assets/Gallery/Large/20240512_115730_resized.jpg',
+        '/assets/Gallery/Large/20240512_115730_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Small/20240512_115730_resized_resized.jpg',
       alt: 'Cascading Style Sheet',

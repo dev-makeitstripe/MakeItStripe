@@ -175,31 +175,23 @@
 
                 <p>
                   Our dedicated team of lawn professionals are here to go to work for you.From simple to complex, large
-                  or small, our work ethic is strong, and the attention to detail is not to be missed. Check out some additional photos of our crew and see some amazing stripes!
+                  or small, our work ethic is strong, and the attention to detail is not to be missed. Check out some
+                  additional photos of our crew and see some amazing stripes!
                 </p>
 
                 <div class="gallery-images">
 
-                  <p-galleria
-                  [value]="images"
-                  [circular]="true"
-                 
-                  [showItemNavigators]="true"
-                  [showThumbnails]="true"
-                  >
-                  <ng-template pTemplate="item" let-item>
-                      <img 
-                          [src]="item.previewImageSrc" 
-                          style="width: 100%; display: block;" />
-                  </ng-template>
-                  <ng-template pTemplate="thumbnail" let-item>
-                    <div class="grid grid-nogutter 
+                  <p-galleria [value]="images" [circular]="true" [showItemNavigators]="true" [showThumbnails]="true">
+                    <ng-template pTemplate="item" let-item>
+                      <img [src]="item.previewImageSrc" style="width: 100%; display: block;" />
+                    </ng-template>
+                    <ng-template pTemplate="thumbnail" let-item>
+                      <div class="grid grid-nogutter 
                                 justify-content-center">
-                           <img [src]="item.thumbnailImageSrc" 
-                                 style="width: 80%" />
-                    </div>
-             </ng-template>
-              </p-galleria>
+                        <img [src]="item.thumbnailImageSrc" style="width: 80%" />
+                      </div>
+                    </ng-template>
+                  </p-galleria>
 
                 </div>
               </div>
@@ -254,6 +246,11 @@
                 today. We're here to make your property look its best, proudly serving the Galesburg and Richland, MI
                 communities.
               </p>
+
+              <div>
+                <button type="button" (click)="show()" pButton icon="pi pi-info-circle" label="Show">
+                </button>
+              </div>
             </div>
           </div>
         </section>
