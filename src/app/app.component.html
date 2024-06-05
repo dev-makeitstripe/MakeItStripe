@@ -10,7 +10,8 @@
 
       <div id="back-to-top">
         <a href="#Top" alt="Back to Stop">
-          Back to Top
+          <img src="/assets/backtotop.png" alt="Back to Top"/>
+          
         </a>
       </div>
 
@@ -30,11 +31,11 @@
 
             <div class="action-items">
               <div class="services">
-                <a href="#" class="button primary-action"> Service Offerings</a>
+                <a href="#Services" class="button primary-action"> Service Offerings</a>
               </div>
 
               <div class="contact-us">
-                <a href="#" class="button secondary-action"> Contact Us</a>
+                <a href="#contact" class="button secondary-action"> Contact Us</a>
               </div>
             </div>
           </div>
@@ -50,10 +51,10 @@
                 Here at Make It Stripe we are committed to making your lawn the best it can be. We have talented
                 professionals that care about your lawn and want it to be the envy of the neighborhood. Our Team is
                 ready
-                to provide quality solutions for your yard.
+                to provide quality solutions for your yard. Hard work is part of our D.N.A.
               </p>
 
-              <ul class="no-bullets">
+              <ul class="no-bullets available-services">
                 <li>
                   Licensed and insured
                 </li>
@@ -115,13 +116,15 @@
                         </div>
 
                         <div class="lawn-services">
-                          <a href="#">Additional Services</a>
-                          <ul class="no-bullets no-show available-services">
-                            <li>Dog Waste Cleanup</li>
-                            <li>Bagging Grass Clippings with provided yard waste bin</li>
-                            <li>Detaching</li>
-                            <li>Aeration</li>
-                          </ul>
+                          <a href (click)="showAdditionalServices($event)">Additional Services</a>
+                          <div *ngIf="additionalServicesShow">
+                            <ul class="no-bullets available-services">
+                              <li>Dog Waste Cleanup</li>
+                              <li>Bagging Grass Clippings with provided yard waste bin</li>
+                              <li>Detaching</li>
+                              <li>Aeration</li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -201,7 +204,24 @@
 
         <section id="Testimonals" class="section-header">
           <div class="global-padding">
-            <div class="container-small">
+            <div class="container-small max-width-large">
+              <div class="align-center">
+                <div class="highlight">Meet Our Crew</div>
+
+                <h2>
+                  Testimonals
+                </h2>
+
+                <p>
+                 Read our satisfied client are saying.
+                </p>
+
+                <div class="list-testimonialss">
+
+                  
+
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -247,9 +267,8 @@
                 communities.
               </p>
 
-              <div>
-                <button type="button" (click)="show()" pButton icon="pi pi-info-circle" label="Show">
-                </button>
+              <div style="padding-top:2%">
+                <a href="#" (click)="show()" class="button primary-action"> Request Quote</a>
               </div>
             </div>
           </div>

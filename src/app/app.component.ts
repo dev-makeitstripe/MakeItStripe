@@ -4,10 +4,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { ImageModule } from 'primeng/image';
-import { DialogService } from 'primeng/dynamicdialog'; 
-import { MessageService } from 'primeng/api'; 
-import { DynamicDialogRef } from 'primeng/dynamicdialog'; 
-import {ContactComponent} from './Modals/contact/contact.component'
+import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ContactComponent } from './Modals/contact/contact.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
@@ -17,7 +20,9 @@ import {ContactComponent} from './Modals/contact/contact.component'
     FooterComponent,
     GalleriaModule,
     ImageModule,
-],
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [DialogService, MessageService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -26,30 +31,40 @@ import {ContactComponent} from './Modals/contact/contact.component'
 export class AppComponent {
   title = 'MakeItStripe';
   isVisible = false;
-  
-  constructor( 
-    public dialogService: DialogService, 
-    public messageService: MessageService 
-) { } 
+  additionalServicesShow =false;
 
-ref: DynamicDialogRef | undefined; 
+  constructor(
+    public dialogService: DialogService,
+    public messageService: MessageService
+  ) {
 
-show() { 
-  this.ref = this.dialogService.open(ContactComponent, { 
-      width: '70%', 
-      contentStyle: { overflow: 'auto' }, 
-      baseZIndex: 10000, 
-      position:"top-right",
-      closable:false,
-      dismissableMask:true
-  }); 
-} 
+  }
 
-ngOnDestroy() { 
-  if (this.ref) { 
-      this.ref.close(); 
-  } 
-} 
+
+  showAdditionalServices($event: any)
+  {
+    $event.preventDefault();
+    this.additionalServicesShow = !this.additionalServicesShow;
+  }
+
+  ref: DynamicDialogRef | undefined;
+
+  show() {
+    this.ref = this.dialogService.open(ContactComponent, {
+      width: '70%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      position: "top-right",
+      closable: false,
+      dismissableMask: true
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.ref) {
+      this.ref.close();
+    }
+  }
 
   images: any[] = [
     {

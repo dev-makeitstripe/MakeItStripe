@@ -1,2 +1,1 @@
-npx swagger-typescript-api -p http://localhost:5259/swagger/v1/swagger.json 
--o ./src -n MakeItStripeAPI.ts
+npx swagger-typescript-api -p http://localhost:5259/swagger/v1/swagger.json -o ./src/app/Services -n MakeItStripeAPI.ts

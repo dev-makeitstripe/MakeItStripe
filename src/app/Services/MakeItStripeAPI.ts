@@ -29,6 +29,43 @@ export enum AddressType {
   Value2 = 2,
 }
 
+export interface BooleanMakeItStripeResult {
+  result?: boolean;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
+}
+
+export interface CapturedEmail {
+  /** @format int32 */
+  capturedID?: number;
+  toAddress?: string | null;
+  fromAddress?: string | null;
+  body?: string | null;
+  hasError?: boolean;
+  /** @format date-time */
+  date?: string;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
+}
+
+export interface CapturedEmailIEnumerableMakeItStripeResult {
+  result?: CapturedEmail[] | null;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
+}
+
+export interface ContactFormEntities {
+  customerTitles?: CustomerTitle[] | null;
+  services?: Service[] | null;
+  referalTypes?: ReferalType[] | null;
+}
+
+export interface ContactFormEntitiesMakeItStripeResult {
+  result?: ContactFormEntities;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
+}
+
 export interface Customer {
   /** @format int32 */
   customerID?: number;
@@ -45,46 +82,69 @@ export interface Customer {
   creationDate?: string;
   title?: CustomerTitle;
   address?: Address[] | null;
+  services?: CustomerToService[] | null;
+  descriptionOfNeeds?: string | null;
+  referalType?: ReferalType;
+  /** @format int32 */
+  referalTypeID?: number;
 }
 
 export interface CustomerTitle {
   /** @format int32 */
   titleID?: number;
   title?: string | null;
+  active?: boolean;
 }
 
-export interface DateOnly {
-  /** @format int32 */
-  year?: number;
-  /** @format int32 */
-  month?: number;
-  /** @format int32 */
-  day?: number;
-  dayOfWeek?: DayOfWeek;
-  /** @format int32 */
-  dayOfYear?: number;
-  /** @format int32 */
-  dayNumber?: number;
+export interface CustomerTitleIEnumerableMakeItStripeResult {
+  result?: CustomerTitle[] | null;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
 }
 
-/** @format int32 */
-export enum DayOfWeek {
-  Value0 = 0,
-  Value1 = 1,
-  Value2 = 2,
-  Value3 = 3,
-  Value4 = 4,
-  Value5 = 5,
-  Value6 = 6,
+export interface CustomerToService {
+  /** @format int32 */
+  customerServiceID?: number;
+  /** @format int32 */
+  customerID?: number;
+  /** @format int32 */
+  serviceID?: number;
+  service?: Service;
 }
 
-export interface WeatherForecast {
-  date?: DateOnly;
+export interface ReferalType {
   /** @format int32 */
-  temperatureC?: number;
+  referalID?: number;
+  referalName?: string | null;
+  active?: boolean;
+}
+
+export interface ReferalTypeMakeItStripeResult {
+  result?: ReferalType;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
+}
+
+export interface Service {
   /** @format int32 */
-  temperatureF?: number;
-  summary?: string | null;
+  serviceID?: number;
+  serviceName?: string | null;
+}
+
+export interface Testimony {
+  /** @format int32 */
+  testimonialID?: number;
+  /** @format int32 */
+  rating?: number;
+  testimonialMessage?: string | null;
+  /** @format date-time */
+  testimonialDate?: string;
+}
+
+export interface TestimonyMakeItStripeResult {
+  result?: Testimony;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -311,9 +371,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/CapturedEmail
      */
     getCapturedEmails: (params: RequestParams = {}) =>
-      this.request<void, any>({
+      this.request<CapturedEmailIEnumerableMakeItStripeResult, any>({
         path: `/api/CapturedEmail`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -325,11 +386,12 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request POST:/api/Contact
      */
     addContact: (data: Customer, params: RequestParams = {}) =>
-      this.request<void, any>({
+      this.request<BooleanMakeItStripeResult, any>({
         path: `/api/Contact`,
         method: "POST",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -341,9 +403,25 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/Contact/GetContactFormEntities
      */
     contactGetContactFormEntitiesList: (params: RequestParams = {}) =>
-      this.request<void, any>({
+      this.request<ContactFormEntitiesMakeItStripeResult, any>({
         path: `/api/Contact/GetContactFormEntities`,
         method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags ReferalType
+     * @name GetReferalTypes
+     * @request GET:/api/ReferalType
+     */
+    getReferalTypes: (params: RequestParams = {}) =>
+      this.request<ReferalTypeMakeItStripeResult, any>({
+        path: `/api/ReferalType`,
+        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -355,9 +433,27 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/Testimony
      */
     getTestimonies: (params: RequestParams = {}) =>
-      this.request<void, any>({
+      this.request<TestimonyMakeItStripeResult, any>({
         path: `/api/Testimony`,
         method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Testimony
+     * @name AddTestimony
+     * @request POST:/api/Testimony
+     */
+    addTestimony: (data: Testimony, params: RequestParams = {}) =>
+      this.request<TestimonyMakeItStripeResult, any>({
+        path: `/api/Testimony`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -369,9 +465,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/Title
      */
     getTitles: (params: RequestParams = {}) =>
-      this.request<void, any>({
+      this.request<CustomerTitleIEnumerableMakeItStripeResult, any>({
         path: `/api/Title`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -389,25 +486,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       },
       params: RequestParams = {},
     ) =>
-      this.request<void, any>({
+      this.request<BooleanMakeItStripeResult, any>({
         path: `/api/Zipcode`,
         method: "GET",
         query: query,
-        ...params,
-      }),
-  };
-  weatherForecast = {
-    /**
-     * No description
-     *
-     * @tags WeatherForecast
-     * @name GetWeatherForecast
-     * @request GET:/WeatherForecast
-     */
-    getWeatherForecast: (params: RequestParams = {}) =>
-      this.request<WeatherForecast[], any>({
-        path: `/WeatherForecast`,
-        method: "GET",
         format: "json",
         ...params,
       }),

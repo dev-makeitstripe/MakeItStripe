@@ -29,9 +29,24 @@
 
 .services{
     display: inline-block;
+   
 }
-
+.padding-right-2pct
+{
+    padding-right: 2%;
+}
 .no-bullets li{
     list-style-type: none;
     padding:.5em 0;
+}
+
+textarea
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: 100%;
+    resize: none;
 }
