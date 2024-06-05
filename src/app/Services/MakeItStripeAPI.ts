@@ -119,8 +119,8 @@ export interface ReferalType {
   active?: boolean;
 }
 
-export interface ReferalTypeMakeItStripeResult {
-  result?: ReferalType;
+export interface ReferalTypeIEnumerableMakeItStripeResult {
+  result?: ReferalType[] | null;
   errorMessage?: string | null;
   stackTrace?: string | null;
 }
@@ -139,6 +139,14 @@ export interface Testimony {
   testimonialMessage?: string | null;
   /** @format date-time */
   testimonialDate?: string;
+  name?: string | null;
+  testimonySource?: string | null;
+}
+
+export interface TestimonyIEnumerableMakeItStripeResult {
+  result?: Testimony[] | null;
+  errorMessage?: string | null;
+  stackTrace?: string | null;
 }
 
 export interface TestimonyMakeItStripeResult {
@@ -418,7 +426,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/ReferalType
      */
     getReferalTypes: (params: RequestParams = {}) =>
-      this.request<ReferalTypeMakeItStripeResult, any>({
+      this.request<ReferalTypeIEnumerableMakeItStripeResult, any>({
         path: `/api/ReferalType`,
         method: "GET",
         format: "json",
@@ -433,7 +441,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/Testimony
      */
     getTestimonies: (params: RequestParams = {}) =>
-      this.request<TestimonyMakeItStripeResult, any>({
+      this.request<TestimonyIEnumerableMakeItStripeResult, any>({
         path: `/api/Testimony`,
         method: "GET",
         format: "json",

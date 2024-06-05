@@ -9,7 +9,7 @@ import { MessageService } from 'primeng/api';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ContactComponent } from './Modals/contact/contact.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 
 
 @Component({
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [RouterOutlet,
     HeaderComponent,
     FooterComponent,
+    TestimonialsComponent,
     GalleriaModule,
     ImageModule,
     FormsModule,
@@ -31,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class AppComponent {
   title = 'MakeItStripe';
   isVisible = false;
-  additionalServicesShow =false;
+  additionalServicesShow = false;
 
   constructor(
     public dialogService: DialogService,
@@ -41,8 +42,7 @@ export class AppComponent {
   }
 
 
-  showAdditionalServices($event: any)
-  {
+  showAdditionalServices($event: any) {
     $event.preventDefault();
     this.additionalServicesShow = !this.additionalServicesShow;
   }

@@ -1,1 +1,27 @@
-<p>testimonials works!</p>
+
+<div class="testimonals-wrapper">
+    <div class="testimony-component">
+        <ng-template ngFor let-item [ngForOf]="formData.result" let-i="index">
+            <div class="testimonial">
+                <div class="rating">
+                    <ng-container *ngFor="let _ of [].constructor( item.rating )">
+                        <div class="review-star"></div>
+                    </ng-container>
+                    
+                </div>
+    
+                <div class="testimony-text">
+                    "{{item.testimonialMessage}}"
+                </div>
+    
+                <div class="green-text testimony-name">
+                    {{item.name}}
+                </div>
+    
+                <div class="testimony-referced-from">
+                    {{item.testimonySource }}
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

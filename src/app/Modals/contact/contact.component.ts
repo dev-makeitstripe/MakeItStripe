@@ -42,7 +42,6 @@ export class ContactComponent {
 
   setup() {
     this.MakeItStripeAPI.baseUrl = environment.apiUrl;
-    console.log(this.MakeItStripeAPI.baseUrl);
   }
 
   getFormData() {
@@ -54,13 +53,10 @@ export class ContactComponent {
               this.selectedReferal.referalID = -1;
               this.selectedReferal.referalName = "How did you hear about us?";
               result.data.result.referalTypes.push(this.selectedReferal)
-
-              console.log(this.selectedReferal);
             }
           }
 
           this.formData = result.data;
-          console.log(this.formData);
           resolve(this.formData);
         }).catch((err) => {
           console.log(err);
