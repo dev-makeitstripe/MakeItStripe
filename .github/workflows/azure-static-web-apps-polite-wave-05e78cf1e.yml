@@ -36,7 +36,7 @@ jobs:
           output_location: "dist/angular-basic" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:  # Put a node version on the following line
-          NODE_VERSION: 20.0.0
+          NODE_VERSION: 20.9.0
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
