@@ -39,6 +39,9 @@ jobs:
           NODE_VERSION: 20.9.0
           BRANCH_NAME: ${{github.ref_name }}
           MSBUILD_CONFIGURATION: ${{github.ref_name }}
+        run: |
+          CI=true npm install
+          npm run build --configuration ${{github.ref_name }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
