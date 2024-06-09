@@ -49,7 +49,8 @@ export class AppComponent {
 
   ref: DynamicDialogRef | undefined;
 
-  show() {
+  show($event: any) {
+    $event.preventDefault();
     this.ref = this.dialogService.open(ContactComponent, {
       width: '70%',
       contentStyle: { overflow: 'auto' },
