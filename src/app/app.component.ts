@@ -123,5 +123,77 @@ export class AppComponent {
       alt: 'Cascading Style Sheet',
       title: 'CSS',
     },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_125018.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_125018.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_142422.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_142422.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_142422.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_142422.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_142513.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_142513.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_142518.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_142518.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_142527.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_142527.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_150346.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_150346.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_150352.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_150352.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
+    {
+      previewImageSrc:
+        '/assets/Gallery/Small/20240607_150358.jpg_resized.jpg',
+      thumbnailImageSrc:
+        '/assets/Gallery/Large/20240607_150358.jpg_resized.jpg',
+      alt: 'Cascading Style Sheet',
+      title: 'CSS',
+    },
   ];
 }

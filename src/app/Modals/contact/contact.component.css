@@ -1,21 +1,23 @@
-.modal-wrapper{
+.modal-wrapper {
     background-color: white;
-    border:2px solid black;
+    border: 2px solid black;
 }
-.grid{
+
+.grid {
 
     padding: .5em 5%;
 }
-.grid-single-line{
+
+.grid-single-line {
     justify-content: left;
     display: block;
 }
 
-.full-length{
-    width:100%;
+.full-length {
+    width: 100%;
 }
 
-.grid-row{
+.grid-row {
     display: grid;
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
@@ -23,25 +25,25 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.modal-wrapper{
-    padding:1em;
+.modal-wrapper {
+    padding: 1em;
 }
 
-.services{
+.services {
     display: inline-block;
-   
+
 }
-.padding-right-2pct
-{
+
+.padding-right-2pct {
     padding-right: 2%;
 }
-.no-bullets li{
+
+.no-bullets li {
     list-style-type: none;
-    padding:.5em 0;
+    padding: .5em 0;
 }
 
-textarea
-{
+textarea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -49,4 +51,21 @@ textarea
     width: 100%;
     max-width: 100%;
     resize: none;
+}
+
+.Success-Message {
+    background-color: lightgreen;
+
+}
+
+.Error-Message {
+    background-color: lightpink;
+}
+
+.Contact-Message
+{
+    margin: 1rem;
+
+    padding: 1rem;
+
 }

@@ -38,14 +38,14 @@ export interface BooleanMakeItStripeResult {
 export interface CapturedEmail {
   /** @format int32 */
   capturedID?: number;
-  toAddress?: string | null;
-  fromAddress?: string | null;
-  body?: string | null;
-  hasError?: boolean;
+  toAddress: string | null;
+  fromAddress: string | null;
+  body: string | null;
+  hasError: boolean;
   /** @format date-time */
   date?: string;
-  errorMessage?: string | null;
-  stackTrace?: string | null;
+  errorMessage: string | null;
+  stackTrace: string | null;
 }
 
 export interface CapturedEmailIEnumerableMakeItStripeResult {
@@ -55,9 +55,9 @@ export interface CapturedEmailIEnumerableMakeItStripeResult {
 }
 
 export interface ContactFormEntities {
-  customerTitles?: CustomerTitle[] | null;
-  services?: Service[] | null;
-  referalTypes?: ReferalType[] | null;
+  customerTitles: CustomerTitle[] | null;
+  services: Service[] | null;
+  referalTypes: ReferalType[] | null;
 }
 
 export interface ContactFormEntitiesMakeItStripeResult {
@@ -77,16 +77,16 @@ export interface Customer {
   email?: string | null;
   phoneNumber?: string | null;
   /** @format int32 */
-  titleID?: number;
+  titleID?: number | null;
   /** @format date-time */
   creationDate?: string;
   title?: CustomerTitle;
   address?: Address[] | null;
   services?: CustomerToService[] | null;
-  descriptionOfNeeds?: string | null;
+  descriptionOfNeeds: string | null;
   referalType?: ReferalType;
   /** @format int32 */
-  referalTypeID?: number;
+  referalTypeID: number;
 }
 
 export interface CustomerTitle {
@@ -115,7 +115,7 @@ export interface CustomerToService {
 export interface ReferalType {
   /** @format int32 */
   referalID?: number;
-  referalName?: string | null;
+  referalName: string | null;
   active?: boolean;
 }
 
@@ -135,12 +135,12 @@ export interface Testimony {
   /** @format int32 */
   testimonialID?: number;
   /** @format int32 */
-  rating?: number;
-  testimonialMessage?: string | null;
+  rating: number;
+  testimonialMessage: string | null;
   /** @format date-time */
   testimonialDate?: string;
-  name?: string | null;
-  testimonySource?: string | null;
+  name: string | null;
+  testimonySource: string | null;
 }
 
 export interface TestimonyIEnumerableMakeItStripeResult {

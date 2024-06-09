@@ -3,13 +3,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
-import { AddressType, Api, ReferalType } from '../../Services/MakeItStripeAPI';
+import { AddressType, Api, CustomerToService, ReferalType } from '../../Services/MakeItStripeAPI';
 import { Customer } from '../../Services/MakeItStripeAPI';
 import { Address } from '../../Services/MakeItStripeAPI';
 import { ContactFormEntitiesMakeItStripeResult } from '../../Services/MakeItStripeAPI';
 import { Service } from '../../Services/MakeItStripeAPI';
 import { environment } from '../../../environments/environment';
 import { FormGroup, FormControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { resolve } from "node:path";
 
 
 @Component({
@@ -26,11 +27,21 @@ import { FormGroup, FormControl, ValidatorFn, ValidationErrors } from '@angular/
 })
 export class ContactComponent {
   formData: ContactFormEntitiesMakeItStripeResult = {};
-  customerModel: Customer = {};
+  contactModel: Customer = {
+    descriptionOfNeeds: null,
+    referalTypeID: -1
+  };
   address: Address = {};
   requestedServices: Service[] = [];
-  selectedReferal: ReferalType = {};
+  selectedReferal: ReferalType = {
+    referalName: null,
+    active: true,
+    referalID: -1
+  };
+  customerToServices: CustomerToService[] = []
   hasPhoneError: boolean = false;
+  contactSuccess: boolean = false;
+  contactError: boolean = false;
 
   constructor(
     public ref: DynamicDialogRef,
@@ -48,15 +59,8 @@ export class ContactComponent {
     new Promise((resolve, reject) => {
       this.MakeItStripeAPI.api.contactGetContactFormEntitiesList().then(
         result => {
-          if (result.data.result != null) {
-            if (result.data.result.referalTypes != null) {
-              this.selectedReferal.referalID = -1;
-              this.selectedReferal.referalName = "How did you hear about us?";
-              result.data.result.referalTypes.push(this.selectedReferal)
-            }
-          }
-
           this.formData = result.data;
+          console.log(this.formData);
           resolve(this.formData);
         }).catch((err) => {
           console.log(err);
@@ -112,7 +116,39 @@ export class ContactComponent {
 
   onSubmit() {
     this.address.addressType = AddressType.Value1;
-    this.customerModel.address?.push(this.address);
+
+    if (this.contactModel.address == null) {
+      this.contactModel.address = [];
+    }
+    
+    this.contactModel.address?.push(this.address);
+
+    if (this.requestedServices != null) {
+
+      this.requestedServices.forEach(service => {
+
+        type service = CustomerToService;
+        service.serviceID = service.serviceID;
+
+        this.customerToServices.push(service);
+      });
+
+      this.contactModel.services = this.customerToServices;
+    }
+
+    this.contactModel.referalTypeID = this.selectedReferal.referalID!;
+
+    new Promise((resolve, reject) => {
+      this.MakeItStripeAPI.api.addContact(this.contactModel).then(
+        result => {
+          this.contactSuccess = true;
+          resolve([]);
+        }).catch((err) => {
+          this.contactError = true;
+          console.log(err);
+          reject(err);
+        });
+    })
   }
 
 }
