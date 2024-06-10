@@ -70,6 +70,23 @@ a.navbar-brand {
     padding-left: 0;
 }
 
-.top-border{
-    border-top:1px solid black;
+.top-border {
+    border-top: 1px solid black;
+}
+
+@media only screen and (max-width: 991px) {
+    .center-50 {
+        display: block;
+        width: 100%;
+    }
+
+    .center-33,.right-33{
+        width: 45%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .navbar-expand-md .navbar-nav {
+        display: inline-block;
+    }
 }

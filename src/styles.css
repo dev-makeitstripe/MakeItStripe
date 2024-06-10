@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar-brand
+{
+    display: block;
+}
 a.navbar-brand img {
     height: 100px;
     width: 100px;
@@ -68,4 +72,11 @@ a.button:hover {
 
 .seconary-action {
     background-color: transparent;
+}
+
+@media only screen and (max-width: 767px) {
+    a.navbar-brand img {
+        height: 70px;
+        width: 70px;
+    }
 }

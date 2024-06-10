@@ -65,7 +65,15 @@ textarea {
 .Contact-Message
 {
     margin: 1rem;
-
     padding: 1rem;
-
 }
+
+@media only screen and (max-width: 550px) {
+    .grid-row {
+        display: block;
+    }
+    
+    .grid-content {
+        padding:1rem 0;
+    }
+  }

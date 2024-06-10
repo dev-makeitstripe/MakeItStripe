@@ -10,8 +10,7 @@
 
       <div id="back-to-top">
         <a href="#Top" alt="Back to Stop">
-          <img src="/assets/backtotop.png" alt="Back to Top"/>
-          
+          <img src="/assets/backtotop.png" alt="Back to Top" />
         </a>
       </div>
 
@@ -72,7 +71,7 @@
         <section id="Services" class="section-header section-layout949-header">
           <div class="global-padding">
             <div class="container-small">
-              <div class="align-center">
+              <div class="align-center max-width-large">
                 <span class="highlight dark-green">Services</span>
 
                 <h2 class="dark-green">
@@ -88,74 +87,76 @@
               </div>
 
               <div class="services-wrapper">
-                <div class="section-layout949">
-                  <div class="lawn-maintenance section-layout949-row">
-                    <div class="lawn-mainentance-pic">
-                      <img class="grid-pic" src="/assets/lawn-maintenance.jpg" alt="mowing action shot">
-                    </div>
+                <div class=" layout-grid layout949_component">
+                  <div class="layout949-row">
+                    <div class="lawn-maintenance layout949-card">
+                      <div class="lawn-mainentance-pic layout949_card-image-wrapper">
+                        <img class="grid-pic" src="/assets/lawn-maintenance.jpg" alt="mowing action shot">
+                      </div>
 
-                    <div class="lawn-mainentance-text card-layout">
-                      <div class="section-layout949-content-top">
-                        <div class="card-sub-heading">Residential</div>
+                      <div class="lawn-mainentance-text card-layout">
+                        <div class="section-layout949-content-top">
+                          <div class="card-sub-heading">Residential</div>
 
-                        <div class="card-header">
-                          <h3> Lawn Maintenance</h3>
-                        </div>
+                          <div class="card-header">
+                            <h3> Lawn Maintenance</h3>
+                          </div>
 
-                        <div class="card-content">
-                          <p>Our lawn care services are designed to keep your lawn healthy, green, and well-maintained
-                            throughout the year.</p>
-                        </div>
+                          <div class="card-content">
+                            <p>Our lawn care services are designed to keep your lawn healthy, green, and well-maintained
+                              throughout the year.</p>
+                          </div>
 
-                        <div class="lawn-services">
-                          <ul class="no-bullets available-services">
-                            <li>Weekly Lawn Service</li>
-                            <li>Monthly Hard Edging</li>
-                            <li>Trimming Around Property</li>
-                          </ul>
-                        </div>
-
-                        <div class="lawn-services">
-                          <a href (click)="showAdditionalServices($event)">Additional Services</a>
-                          <div *ngIf="additionalServicesShow">
+                          <div class="lawn-services">
                             <ul class="no-bullets available-services">
-                              <li>Dog Waste Cleanup</li>
-                              <li>Bagging Grass Clippings with provided yard waste bin</li>
-                              <li>Detaching</li>
-                              <li>Aeration</li>
+                              <li>Weekly Lawn Service</li>
+                              <li>Monthly Hard Edging</li>
+                              <li>Trimming Around Property</li>
                             </ul>
+                          </div>
+
+                          <div class="lawn-services">
+                            <a href (click)="showAdditionalServices($event)">Additional Services</a>
+                            <div *ngIf="additionalServicesShow">
+                              <ul class="no-bullets available-services">
+                                <li>Dog Waste Cleanup</li>
+                                <li>Bagging Grass Clippings with provided yard waste bin</li>
+                                <li>Detaching</li>
+                                <li>Aeration</li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="landscaping section-layout949-row">
+                    <div class="landscaping layout949-card">
 
-                    <div class="lawn-mainentance-pic">
-                      <img class="grid-pic" src="/assets/landscape.jpg" alt="mowing action shot">
-                    </div>
+                      <div class="lawn-mainentance-pic layout949_card-image-wrapper">
+                        <img class="grid-pic" src="/assets/landscape.jpg" alt="mowing action shot">
+                      </div>
 
-                    <div class="lawn-mainentance-text card-layout">
-                      <div class="section-layout949-content-top">
-                        <div class="card-sub-heading">Residential</div>
+                      <div class="lawn-mainentance-text card-layout">
+                        <div class="section-layout949-content-top">
+                          <div class="card-sub-heading">Residential</div>
 
-                        <div class="card-header">
-                          <h3>Landscaping</h3>
-                        </div>
+                          <div class="card-header">
+                            <h3>Landscaping</h3>
+                          </div>
 
-                        <div class="card-content">
-                          <p>Transform your outdoor space with our professional landscaping services. We create
-                            beautiful
-                            and functional landscapes tailored to your preferences.</p>
-                        </div>
+                          <div class="card-content">
+                            <p>Transform your outdoor space with our professional landscaping services. We create
+                              beautiful
+                              and functional landscapes tailored to your preferences.</p>
+                          </div>
 
-                        <div class="lawn-services">
-                          <ul class="no-bullets available-services">
-                            <li>Mulch installation</li>
-                            <li>Weeding</li>
-                            <li>Hedge Trimming</li>
-                          </ul>
+                          <div class="lawn-services">
+                            <ul class="no-bullets available-services">
+                              <li>Mulch installation</li>
+                              <li>Weeding</li>
+                              <li>Hedge Trimming</li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -213,7 +214,7 @@
                 </h2>
 
                 <p class="spacer">
-                 Read our satisfied client are saying.
+                  Read our satisfied client are saying.
                 </p>
 
                 <div class="list-testimonialss">

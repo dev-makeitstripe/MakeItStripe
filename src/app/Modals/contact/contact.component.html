@@ -20,7 +20,7 @@
             <p>We are looking forward to working with you.</p>
         </div>
 
-        <div *ngIf="contactError"  class="Error-Message Contact-Message">
+        <div *ngIf="contactError" class="Error-Message Contact-Message">
             <p>Thank you For Contacting us, But there was an error on our side, how embarrassing.</p>
 
             <p>Please give us a call to discuss your needs or to let us know about the problem.</p>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="grid">
                         <div class="grid-row">
-                            <div>
+                            <div class="grid-content">
                                 <input type="text" id="first_name" placeholder="First Name" name="first_name" required
                                     minlength="2" #name="ngModel" [(ngModel)]="contactModel.firstName" required>
                                 <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
@@ -47,11 +47,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div class="grid-content">
                                 <input type="text" id="middle_initial" placeholder="Middle Initial" maxlength="1"
                                     name="middle_initial" [(ngModel)]="contactModel.middleInitial">
                             </div>
-                            <div>
+                            <div class="grid-content">
                                 <input type="text" id="last_name" placeholder="Last Name" name="last_name"
                                     #lastname="ngModel" minlength="2" [(ngModel)]="contactModel.lastName" required>
 
@@ -68,18 +68,17 @@
                     </div>
                     <div class="grid">
                         <div class="grid-row">
-                            <div>
+                            <div class="grid-content">
                                 <input type="text" id="phone" placeholder="Phone Number"
                                     (ngModelChange)="phoneNumberchange($event)" name="phone_number" required
                                     minlength="9" [(ngModel)]="contactModel.phoneNumber"
                                     [ngModelOptions]="{standalone: true}" #phoneNo="ngModel">
                                 <div *ngIf="hasPhoneError" class="text-danger">
-
                                     <div *ngIf="hasPhoneError"> A Valid Phone Number is required.</div>
                                 </div>
                             </div>
 
-                            <div>
+                            <div class="grid-content">
                                 <input type="email" id="email" placeholder="Email" name="email" #email="ngModel"
                                     [email]="true" [(ngModel)]="contactModel.email" required>
                                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
@@ -171,14 +170,17 @@
                 </div>
                 <div class="grid">
                     <div class="grid-row">
-                        <select id="where-did-you-hear"  [(ngModel)]="selectedReferal" name="" data-name="" required
-                            #referal="ngModel" [ngModelOptions]="{standalone: true}">
-                            <option value="" disabled>How did you hear about us?</option>
-                            <option *ngFor="let c of formData.result?.referalTypes" [ngValue]="c">{{ c.referalName }}</option>
-                        </select>
+                        <div class="grid-content">
+                            <select id="where-did-you-hear" [(ngModel)]="selectedReferal" name="" data-name="" required
+                                #referal="ngModel" [ngModelOptions]="{standalone: true}">
+                                <option value="" disabled>How did you hear about us?</option>
+                                <option *ngFor="let c of formData.result?.referalTypes" [ngValue]="c">{{ c.referalName
+                                    }}</option>
+                            </select>
 
-                        <div *ngIf="referal.invalid && (referal.dirty || referal.touched)" class="text-danger">
-                            <div *ngIf="referal.errors?.['required']">Referal Type is required.</div>
+                            <div *ngIf="referal.invalid && (referal.dirty || referal.touched)" class="text-danger">
+                                <div *ngIf="referal.errors?.['required']">Referal Type is required.</div>
+                            </div>
                         </div>
                     </div>
                 </div>

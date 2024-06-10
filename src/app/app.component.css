@@ -10,9 +10,10 @@
     padding: 0;
 }
 
-
 .section-header-image {
     background-image: url("/assets/presidential-stripes.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .section-header {
@@ -90,8 +91,52 @@
     background-color: lightgreen;
 }
 
+.layout-grid {
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+}
+
+.layout949-row {
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    display: grid;
+}
+
+.layout949-card {
+    align-items: stretch;
+    display: flex;
+    overflow: hidden;
+    background-color: var(--white);
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.layout949_card-image-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+}
+
+.grid-pic {
+
+    max-width: inherit;
+    max-height: inherit;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+}
+
 .align-center {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .no-show {
@@ -127,18 +172,6 @@
     display: grid;
 }
 
-.section-layout949-row {
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.grid-pic {
-    max-width: 100%;
-    display: inline-block;
-}
-
 .card-sub-heading {
     color: darkgreen;
     font-weight: 600;
@@ -162,42 +195,89 @@
     padding-left: .5rem;
 }
 
-.max-width-large{
-    width:100%;
+.max-width-large {
+    width: 100%;
     max-width: 48rem;
 }
 
-.align-left{
+.align-left {
     text-align: left;
 }
 
-.half-width{
+.half-width {
     width: 50%;
 }
 
-.margin-small{
-    margin:1.5em;
+.margin-small {
+    margin: 1.5em;
 }
 
-.margin-bottom{
-    margin-left:0rem !important;
-    margin-right:0rem !important;
-    margin-top:0rem !important;
+.margin-bottom {
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+    margin-top: 0rem !important;
 }
 
 .text-size-medium {
     font-size: 1.125rem;
 }
 
-:host ::ng-deep .p-dialog{ 
-    border: 2px dashed red; 
-    padding: 2px; 
+:host ::ng-deep .p-dialog {
+    border: 2px dashed red;
+    padding: 2px;
 }
 
-.light-grey-background{
+.light-grey-background {
     background-color: lightgray;
 }
 
-.spacer{
-    padding-top:1rem;
+.spacer {
+    padding-top: 1rem;
+}
+
+@media only screen and (max-width: 991px) {
+    .section-header {
+        min-width: auto;
+        min-height: auto;
+        text-align: unset;
+    }
+
+    .action-items {
+        margin-left: 0;
+    }
+
+    .action-items div {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .button {
+        display: block;
+    }
+
+    .services-wrapper {
+        display: block;
+        padding: .5em 5%;
+    }
+
+    .section-layout949 {
+        display: block;
+    }
+
+    .section-layout949-row {
+        padding-bottom: 1rem;
+    }
+
+    .layout-grid {
+        display: block;
+    }
+
+    .layout949-row {
+        display: block;
+    }
+
+    .layout949-card {
+        display: block;
+        padding-bottom: 1rem;
+    }
 }
