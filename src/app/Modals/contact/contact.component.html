@@ -18,6 +18,8 @@
             <p>Thank you For Contacting us, we have recieved your request and will get back to you shortly.</p>
 
             <p>We are looking forward to working with you.</p>
+
+            <a href="#" (click)="closeModal($event)" class="button primary-action"> Close</a>
         </div>
 
         <div *ngIf="contactError" class="Error-Message Contact-Message">
@@ -28,11 +30,15 @@
             <p>We do aplogize for the inconcience</p>
         </div>
 
+        <div *ngIf="hasError" class="Error-Message Contact-Message">
+            <p>Please provide the missing information</p>
+        </div>
+
         <div class="grid-wrapper">
-            <form (ngSubmit)="onSubmit()" novalidate>
+            <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm,$event)">
                 <div>
                     <div>
-                        <!-- pull down goes here-->
+
                     </div>
                     <div class="grid">
                         <div class="grid-row">
@@ -137,7 +143,7 @@
                                     <ng-template ngFor let-item [ngForOf]="formData.result?.services" let-i="index">
                                         <li>
                                             <span class="padding-right-2pct">
-                                                <input class="services" type="checkbox" data-name="{{item.serviceName}}"
+                                                <input class="services" type="checkbox" name="{{item.serviceName}}"
                                                     (change)="updateRequestedServices(item)" />
                                             </span>
 
@@ -157,8 +163,9 @@
                 <div class="grid grid-single-line">
                     <div>
                         <textarea id="needs" maxlength="5000" rows="6" class="text-area-full-width"
-                            [(ngModel)]="contactModel.descriptionOfNeeds" [ngModelOptions]="{standalone: true}"
-                            #description="ngModel" required placeholder="Please Describe your needs ..."></textarea>
+                            name="DescribeYourNeeds" required [(ngModel)]="contactModel.descriptionOfNeeds"
+                            [ngModelOptions]="{standalone: true}" #description="ngModel"
+                            placeholder="Please Describe your needs ..."></textarea>
 
                         <div *ngIf="description.invalid && (description.dirty || description.touched)"
                             class="text-danger">
@@ -171,15 +178,18 @@
                 <div class="grid">
                     <div class="grid-row">
                         <div class="grid-content">
-                            <select id="where-did-you-hear" [(ngModel)]="selectedReferal" name="" data-name="" required
+                            <select id="where-did-you-hear" [(ngModel)]="selectedReferal" name="referalType" required
                                 #referal="ngModel" [ngModelOptions]="{standalone: true}">
-                                <option value="" disabled>How did you hear about us?</option>
-                                <option *ngFor="let c of formData.result?.referalTypes" [ngValue]="c">{{ c.referalName
+                                <option value="-1" class="dropdown-item" disabled selected>How Did you hear about us?
+                                </option>
+                                <option *ngFor="let c of formData.result?.referalTypes" [ngValue]="c.referalID">{{
+                                    c.referalName
                                     }}</option>
                             </select>
-
                             <div *ngIf="referal.invalid && (referal.dirty || referal.touched)" class="text-danger">
+
                                 <div *ngIf="referal.errors?.['required']">Referal Type is required.</div>
+
                             </div>
                         </div>
                     </div>
@@ -187,7 +197,7 @@
 
                 <div class="grid" style="display: block; padding-top:2%;">
                     <!-- submit goes here-->
-                    <a href="#" (click)="onSubmit()" class="button primary-action"> Submit</a>
+                    <a href="#" (click)="onSubmit(contactForm,$event)" class="button primary-action"> Submit</a>
                 </div>
 
             </form>
