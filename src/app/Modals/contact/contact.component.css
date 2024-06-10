@@ -27,11 +27,15 @@
 
 .modal-wrapper {
     padding: 1em;
+    border-radius: 5px;
 }
 
 .services {
     display: inline-block;
+}
 
+.button{
+    display: inline-block;
 }
 
 .padding-right-2pct {
@@ -54,18 +58,18 @@ textarea {
 }
 
 .Success-Message {
-    background-color: lightgreen;
-
+    background-color:#CCFFCC;
 }
 
 .Error-Message {
-    background-color: lightpink;
+    background-color: #f7d1d1;
 }
 
 .Contact-Message
 {
+    border-radius: 5px;
     margin: 1rem;
-    padding: 1rem;
+    padding: 2.5rem;
 }
 
 @media only screen and (max-width: 550px) {

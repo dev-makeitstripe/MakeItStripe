@@ -9,9 +9,7 @@ import { Address } from '../../Services/MakeItStripeAPI';
 import { ContactFormEntitiesMakeItStripeResult } from '../../Services/MakeItStripeAPI';
 import { Service } from '../../Services/MakeItStripeAPI';
 import { environment } from '../../../environments/environment';
-import { FormGroup, FormControl, ValidatorFn, ValidationErrors } from '@angular/forms';
-import { resolve } from "node:path";
-
+import { FormGroup, ValidatorFn, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -27,21 +25,22 @@ import { resolve } from "node:path";
 })
 export class ContactComponent {
   formData: ContactFormEntitiesMakeItStripeResult = {};
+
   contactModel: Customer = {
     descriptionOfNeeds: null,
     referalTypeID: -1
   };
+
   address: Address = {};
   requestedServices: Service[] = [];
-  selectedReferal: ReferalType = {
-    referalName: null,
-    active: true,
-    referalID: -1
-  };
+
+  selectedReferal: number = -1
+
   customerToServices: CustomerToService[] = []
   hasPhoneError: boolean = false;
   contactSuccess: boolean = false;
   contactError: boolean = false;
+  hasError: boolean = false;
 
   constructor(
     public ref: DynamicDialogRef,
@@ -50,6 +49,10 @@ export class ContactComponent {
   ) {
 
   }
+
+  contactForm = new FormGroup({
+
+  });
 
   setup() {
     this.MakeItStripeAPI.baseUrl = environment.apiUrl;
@@ -114,13 +117,41 @@ export class ContactComponent {
     }
   }
 
-  onSubmit() {
+  closeModal($event: any) {
+    $event.preventDefault();
+    this.ref.close();
+  }
+
+  onSubmit(form: any, $event: any) {
+
+    $event.preventDefault();
+
+    this.hasError = false;
+
+    if (!form.valid) {
+      console.log("Form is invalid");
+      this.hasError = !this.hasError;
+      return;
+    }
+
+    if (this.selectedReferal < 0) {
+      console.log("Form is invalid");
+      this.hasError = !this.hasError;
+      return;
+    }
+
+    if (this.requestedServices.length <= 0) {
+      console.log("Form is invalid");
+      this.hasError = !this.hasError;
+      return;
+    }
+
     this.address.addressType = AddressType.Value1;
 
     if (this.contactModel.address == null) {
       this.contactModel.address = [];
     }
-    
+
     this.contactModel.address?.push(this.address);
 
     if (this.requestedServices != null) {
@@ -136,7 +167,9 @@ export class ContactComponent {
       this.contactModel.services = this.customerToServices;
     }
 
-    this.contactModel.referalTypeID = this.selectedReferal.referalID!;
+
+    this.contactModel.referalTypeID = this.selectedReferal;
+
 
     new Promise((resolve, reject) => {
       this.MakeItStripeAPI.api.addContact(this.contactModel).then(
