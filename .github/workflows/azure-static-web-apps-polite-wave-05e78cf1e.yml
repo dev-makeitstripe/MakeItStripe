@@ -31,11 +31,11 @@ jobs:
       - name: Set env to QA
         if: endsWith(github.ref, '/QA')
         run: |
-              eecho BUILD_COMMAND=':QA' >> $GITHUB_ENV
+              echo BUILD_COMMAND=':QA' >> $GITHUB_ENV
       - name: Set env to Production
         if: endsWith(github.ref, '/Main')
         run: |
-              echo "BUILD_COMMAND=" >> $GITHUB_ENV
+             echo BUILD_COMMAND='' >> $GITHUB_ENV
       - name: Check env var
         run: |
                 echo ${{ env.BUILD_COMMAND }}
