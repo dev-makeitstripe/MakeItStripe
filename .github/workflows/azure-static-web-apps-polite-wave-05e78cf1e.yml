@@ -27,11 +27,11 @@ jobs:
       - name: Set env to Dev
         if: endsWith(github.ref, '/Dev')
         run: |
-            echo "BUILD_COMMAND = :Dev" >> $GITHUB_ENV
+            echo "BUILD_COMMAND = '':Dev' " >> $GITHUB_ENV
       - name: Set env to QA
         if: endsWith(github.ref, '/QA')
         run: |
-              echo "BUILD_COMMAND=:QA" >> $GITHUB_ENV
+              echo "BUILD_COMMAND='':QA'" >> $GITHUB_ENV
       - name: Set env to Production
         if: endsWith(github.ref, '/Main')
         run: |
