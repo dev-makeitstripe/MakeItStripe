@@ -20,7 +20,7 @@
             <div class="sub-heading">Make It Stripe Lawn Maintenance</div>
 
             <h1 class="sub-heading">
-              Galesburg's Premiere Residential Lawn Maintenance Provider
+              Galesburg's Premier Residential Lawn Maintenance Provider
             </h1>
 
             <p>
@@ -100,7 +100,7 @@
                   <div class="layout949-row">
                     <div class="lawn-maintenance layout949-card">
                       <div class="lawn-mainentance-pic layout949_card-image-wrapper">
-                        <img class="grid-pic" src="/assets/lawn-maintenance.jpg" alt="mowing action shot">
+                        <img class="grid-pic" src="/assets/lawn-maintenance.jpg" alt="Lawn Mowing Stripe Result">
                       </div>
 
                       <div class="lawn-mainentance-text card-layout">
@@ -142,7 +142,7 @@
                     <div class="landscaping layout949-card">
 
                       <div class="lawn-mainentance-pic layout949_card-image-wrapper">
-                        <img class="grid-pic" src="/assets/landscape.jpg" alt="mowing action shot">
+                        <img class="grid-pic" src="/assets/landscape.jpg" alt="Landscaping After Shot">
                       </div>
 
                       <div class="lawn-mainentance-text card-layout">
@@ -196,12 +196,12 @@
 
                   <p-galleria [value]="images" [circular]="true" [showItemNavigators]="true" [showThumbnails]="true">
                     <ng-template pTemplate="item" let-item>
-                      <img [src]="item.previewImageSrc" style="width: 100%; display: block;" />
+                      <img [src]="item.previewImageSrc" style="width: 100%; display: block;" [alt]="item.alt"  [title]="item.title" />
                     </ng-template>
                     <ng-template pTemplate="thumbnail" let-item>
                       <div class="grid grid-nogutter 
                                 justify-content-center">
-                        <img [src]="item.thumbnailImageSrc" style="width: 80%" />
+                        <img [src]="item.thumbnailImageSrc" style="width: 80%" [alt]="item.alt"  [title]="item.title" />
                       </div>
                     </ng-template>
                   </p-galleria>
@@ -264,7 +264,7 @@
           <div class="container-small">
             <div class="align-left half-width">
               <div class="highlight">
-                Recieve A Free Quote
+                Receive A Free Quote
               </div>
               <div class="margin-bottom margin-small">
                 <h2>

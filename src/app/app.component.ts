@@ -73,88 +73,88 @@ export class AppComponent {
         '/assets/Gallery/Large/20240512_115730_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Small/20240512_115730_resized_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+      alt: 'Stripes in the front yard, after the first cut',
+      title: 'Beautiful Stripes in the front yard, after the first cut',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240531_162322_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240531_162322_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+      alt: 'Make It Stripe Lawn Tractor "Big Stripe" ',
+      title: 'Make It Stripe Lawn Tractor "Big Stripe" ',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240531_180211_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240531_180211_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+      alt: 'Backyard Stripes, compliments of "Big Stripe" ',
+      title: 'Backyard Stripes, compliments of "Big Stripe" ',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240531_182722_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240531_182722_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+      alt: '"Big Stripe" at rest with bagging system',
+      title: '"Big Stripe" at rest with bagging system',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240601_125013_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240601_125013_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+      alt: 'Beatufiul back yard with crispy stripes',
+      title: 'Beatufiul back yard with crispy stripes',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240601_125017_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240601_125017_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'Beatufiul back yard with crispy stripes',
+        title: 'Beatufiul back yard with crispy stripes',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240601_125019_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240601_125019_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'Beatufiul back yard with crispy stripes',
+        title: 'Beatufiul back yard with crispy stripes',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_125018.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_125018.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+      alt: 'Begging of Backyard clean up, has not been mowed all season',
+      title: 'Begging of Backyard clean up, has not been mowed all season',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_142422.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_142422.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'After clean up of the backyard',
+        title: 'After clean up of the backyard',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_142422.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_142422.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+      alt: 'Before Hedge trimming',
+      title: 'Before Hedge trimming',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_142513.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_142513.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'Before Hedge trimming',
+        title: 'Before Hedge trimming',
     },
     {
       previewImageSrc:
@@ -169,32 +169,32 @@ export class AppComponent {
         '/assets/Gallery/Small/20240607_142527.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_142527.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'Before Hedge trimming',
+        title: 'Before Hedge trimming',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_150346.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_150346.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'After Hedge trimming',
+        title: 'After Hedge trimming',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_150352.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_150352.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'After Hedge trimming',
+        title: 'After Hedge trimming',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_150358.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_150358.jpg_resized.jpg',
-      alt: 'Cascading Style Sheet',
-      title: 'CSS',
+        alt: 'After Hedge trimming',
+        title: 'After Hedge trimming',
     },
   ];
 }

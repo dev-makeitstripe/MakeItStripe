@@ -74,19 +74,64 @@ a.navbar-brand {
     border-top: 1px solid black;
 }
 
+.sm-icons {
+    font-family: 'Ultimate-Icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.social-link{
+    display: inline-block;
+    margin-right:2%;
+}
+
+.social-links{
+    padding:2% 0;
+}
+
+.secondary-action
+{
+    background-color: #0066FF;
+}
+.social-media-image{
+    vertical-align: bottom;
+}
+
 @media only screen and (max-width: 991px) {
     .center-50 {
         display: block;
         width: 100%;
     }
 
-    .center-33,.right-33{
+    .center-33,
+    .right-33 {
         width: 45%;
         display: inline-block;
         vertical-align: top;
     }
 
     .navbar-expand-md .navbar-nav {
+        display: inline-block;
+    }
+
+    .social-links{
+        padding:4% 0;
+    }
+
+    .social-link{
+        display: block;
+        padding-top:2%;
+    }
+
+    .social-link a{
         display: inline-block;
     }
 }
