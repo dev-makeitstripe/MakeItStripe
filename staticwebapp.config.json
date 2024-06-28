@@ -2,6 +2,11 @@
   "platform": {
     "apiruntime": "node:20"
   },
+  "forwardingGateway": {
+  "allowedForwardedHosts": [
+   "www.makeitstripe.com"
+  ]
+},
   "routes": [
     {
       "route": "/*",
