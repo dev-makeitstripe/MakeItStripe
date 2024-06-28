@@ -1,5 +1,23 @@
 {
-  "platform":{
-    "apiruntime" :"node:20"
-  }
+  "platform": {
+    "apiruntime": "node:20"
+  },
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": [
+        "anonymous"
+      ],
+      "allowedMethods": [
+        "get",
+        "post",
+        "put",
+        "delete",
+        "options"
+      ],
+      "allowedForwardedHosts": [
+        "www.makeitstripe.com/"
+      ]
+    }
+  ]
 }
