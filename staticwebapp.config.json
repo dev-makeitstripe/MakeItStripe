@@ -16,7 +16,7 @@
         "options"
       ],
       "allowedForwardedHosts": [
-        "www.makeitstripe.com/"
+        "www.makeitstripe.com"
       ]
     }
   ]
