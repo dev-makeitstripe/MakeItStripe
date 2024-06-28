@@ -51,7 +51,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
-          config_file_location: '/src'
+          config_file_location: '/'
           output_location: "dist/make-it-stripe/browser" # Built app content directory - optional
           app_build_command: "npm run build${{env.BUILD_COMMAND}}"
           ###### End of Repository/Build Configurations ######
