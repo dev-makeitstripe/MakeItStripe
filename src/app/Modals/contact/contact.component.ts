@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -25,6 +25,9 @@ import { FormGroup, ValidatorFn, ValidationErrors } from '@angular/forms';
 })
 export class ContactComponent {
   formData: ContactFormEntitiesMakeItStripeResult = {};
+
+  @ViewChild("message")
+  MyProp!: ElementRef;
 
   contactModel: Customer = {
     descriptionOfNeeds: null,
@@ -122,6 +125,11 @@ export class ContactComponent {
     this.ref.close();
   }
 
+  scrollToTop()
+  {
+    this.MyProp.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   onSubmit(form: any, $event: any) {
 
     $event.preventDefault();
@@ -175,9 +183,11 @@ export class ContactComponent {
       this.MakeItStripeAPI.api.addContact(this.contactModel).then(
         result => {
           this.contactSuccess = true;
+          this.scrollToTop();
           resolve([]);
         }).catch((err) => {
           this.contactError = true;
+          this.scrollToTop();
           console.log(err);
           reject(err);
         });
