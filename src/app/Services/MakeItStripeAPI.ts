@@ -141,6 +141,7 @@ export interface Testimony {
   testimonialDate?: string;
   name: string | null;
   testimonySource: string | null;
+  email: string | null;
 }
 
 export interface TestimonyIEnumerableMakeItStripeResult {

@@ -1,0 +1,91 @@
+<div class="modal-wrapper">
+    <div class="modal-header">
+        <div>
+            <h2>
+                Add Testimonial
+            </h2>
+        </div>
+        <div #message class="form-data" id="success-message">
+
+        </div>
+        <div class="testimony-body">
+            <form [formGroup]="testimonyForm" (ngSubmit)="createTestimony($event)">
+                <div class="form-group">
+                    <label for=" name">Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="name"
+                        [ngClass]="{ 'is-invalid': testimonySubmitted && f['name'].errors }" placeholder="Enter Name">
+                    @if (testimonySubmitted && f['name'].errors) {
+                    <div class="invalid-feedback">
+                        @if (f['name'].errors['required']) {
+                        <div>Name is required</div>
+                        } @if (f['name'].errors['email']) {
+                        <div>Name is invalid</div>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="form-group">
+                    <label for=" email">Email</label>
+                    <input type="email" formControlName="email" class="form-control" id="email"
+                        [ngClass]="{ 'is-invalid': testimonySubmitted && f['email'].errors }" placeholder="Enter Email">
+                    @if (testimonySubmitted && f['email'].errors) {
+                    <div class="invalid-feedback">
+                        @if (f['email'].errors['required']) {
+                        <div>Email is required</div>
+                        } @if (f['email'].errors['email']) {
+                        <div>Email is invalid</div>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="form-group">
+                    <label for="testimonialMessage">Testimony</label>
+                    <textarea maxlength="5000" rows="6" class="text-area-full-width"
+                        formControlName="testimonialMessage" class="form-control" id="testimonialMessage"
+                        placeholder="Enter Testimony" required="required"
+                        [ngClass]="{ 'is-invalid': testimonySubmitted && f['testimonialMessage'].errors }">
+                    </textarea>
+                    @if (testimonySubmitted && f['testimonialMessage'].errors) {
+                    <div class="invalid-feedback">
+                        @if (f['testimonialMessage'].errors['required']) {
+                        <div>Testimony is required</div>
+                        } @if (f['testimonialMessage'].errors['minlength']) {
+                        <div>Testimony is is not long enough</div>}
+                    </div>
+                    }
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <div id="rating">
+                        <ng-container *ngFor="let _ of [].constructor( maxRating );let i = index" >
+                            <div class="review-star" [ngClass]="{'review-star-yellow': i < testimonyModel.rating}">
+                                <div class="review-star-inner">
+                                    <a class="review-star-link" href="#" (click)="setRating($event, i)"></a>
+                                </div>
+                            </div>
+                        </ng-container>
+                       
+                        <input type="hidden" ngModel="{{testimonyModel.rating}}" formControlName="rating" class="form-control" id="rating"
+                        [ngClass]="{ 'is-invalid': testimonySubmitted && f['rating'].errors }">
+
+                        @if (testimonySubmitted && f['rating'].errors) {
+                        <div class="invalid-feedback">
+                            @if (f['rating'].errors['required']) {
+                            <div>Rating is required</div>
+                            } @if (f['rating'].errors['min']) {
+                            <div>Rating is invalid</div>
+                            }
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="grid" style="display: block; padding-top:2%;">
+                    <!-- submit goes here-->
+                    <a href="#" (click)="createTestimony($event)" class="button primary-action"> Submit</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.modal-wrapper {
+    background-color: white;
+    border: 2px solid black;
+}
+
+.modal-wrapper {
+    padding: 1em;
+    border-radius: 5px;
+}

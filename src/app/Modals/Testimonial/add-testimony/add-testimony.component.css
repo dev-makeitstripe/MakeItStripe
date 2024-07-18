@@ -1,0 +1,14 @@
+.form-group {
+    padding-bottom: .5em;
+}
+
+.form-group label {
+    padding-bottom: .5em;
+    display: block;
+}
+
+.review-star-link{
+    display: block;
+    height: 32px;
+    width: 32px;
+}
