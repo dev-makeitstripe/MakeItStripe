@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GalleriaModule } from 'primeng/galleria';
@@ -33,14 +33,35 @@ export class AppComponent {
   title = 'MakeItStripe';
   isVisible = false;
   additionalServicesShow = false;
+  eventSubscription: any;
+  showContact = false;
 
   constructor(
     public dialogService: DialogService,
-    public messageService: MessageService
+    public messageService: MessageService,
+    private router: Router
   ) {
 
   }
 
+  ngOnInit() {
+
+    this.eventSubscription = this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        if (e.url != null) {
+          if (e.url.includes('contact')) {
+            this.showContact = true;
+
+            if(this.showContact) {
+              this.show(null);
+            }
+          }
+        }
+      }
+    });
+
+    
+  }
 
   showAdditionalServices($event: any) {
     $event.preventDefault();
@@ -50,14 +71,17 @@ export class AppComponent {
   ref: DynamicDialogRef | undefined;
 
   show($event: any) {
-    $event.preventDefault();
+    if ($event != null) {
+      $event.preventDefault();
+    }
+
     this.ref = this.dialogService.open(ContactComponent, {
       width: '70%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       position: "top-right",
       closable: false,
-      dismissableMask: true
+      dismissableMask: true,
     });
   }
 
@@ -65,6 +89,7 @@ export class AppComponent {
     if (this.ref) {
       this.ref.close();
     }
+    this.eventSubscription.unsubscribe();
   }
 
   images: any[] = [
@@ -113,16 +138,16 @@ export class AppComponent {
         '/assets/Gallery/Small/20240601_125017_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240601_125017_resized.jpg',
-        alt: 'Beatufiul back yard with crispy stripes',
-        title: 'Beatufiul back yard with crispy stripes',
+      alt: 'Beatufiul back yard with crispy stripes',
+      title: 'Beatufiul back yard with crispy stripes',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240601_125019_resized_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240601_125019_resized.jpg',
-        alt: 'Beatufiul back yard with crispy stripes',
-        title: 'Beatufiul back yard with crispy stripes',
+      alt: 'Beatufiul back yard with crispy stripes',
+      title: 'Beatufiul back yard with crispy stripes',
     },
     {
       previewImageSrc:
@@ -137,8 +162,8 @@ export class AppComponent {
         '/assets/Gallery/Small/20240607_142422.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_142422.jpg_resized.jpg',
-        alt: 'After clean up of the backyard',
-        title: 'After clean up of the backyard',
+      alt: 'After clean up of the backyard',
+      title: 'After clean up of the backyard',
     },
     {
       previewImageSrc:
@@ -153,8 +178,8 @@ export class AppComponent {
         '/assets/Gallery/Small/20240607_142513.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_142513.jpg_resized.jpg',
-        alt: 'Before Hedge trimming',
-        title: 'Before Hedge trimming',
+      alt: 'Before Hedge trimming',
+      title: 'Before Hedge trimming',
     },
     {
       previewImageSrc:
@@ -169,32 +194,33 @@ export class AppComponent {
         '/assets/Gallery/Small/20240607_142527.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_142527.jpg_resized.jpg',
-        alt: 'Before Hedge trimming',
-        title: 'Before Hedge trimming',
+      alt: 'Before Hedge trimming',
+      title: 'Before Hedge trimming',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_150346.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_150346.jpg_resized.jpg',
-        alt: 'After Hedge trimming',
-        title: 'After Hedge trimming',
+      alt: 'After Hedge trimming',
+      title: 'After Hedge trimming',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_150352.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_150352.jpg_resized.jpg',
-        alt: 'After Hedge trimming',
-        title: 'After Hedge trimming',
+      alt: 'After Hedge trimming',
+      title: 'After Hedge trimming',
     },
     {
       previewImageSrc:
         '/assets/Gallery/Small/20240607_150358.jpg_resized.jpg',
       thumbnailImageSrc:
         '/assets/Gallery/Large/20240607_150358.jpg_resized.jpg',
-        alt: 'After Hedge trimming',
-        title: 'After Hedge trimming',
+      alt: 'After Hedge trimming',
+      title: 'After Hedge trimming',
     },
   ];
+
 }
